@@ -19,6 +19,7 @@ One tool, `consultar_tienda(dominio)`, takes a shop domain and returns facts, ea
 | The TLS certificate, and the organisation it names if it is OV/EV | The site itself |
 | The return window the shop promises, with the sentence it comes from | The site itself |
 | Whether the domain is on an open list of active phishing sites | Phishing.Database |
+| Whether the shop's `robots.txt` lets AI agents in (ChatGPT, Claude, Perplexity), and which ones it blocks | The site's `robots.txt` |
 
 It does not rate products, deliveries or service, and it never turns a missing fact into an accusation: **an unverified shop is not a fraudulent shop.**
 
