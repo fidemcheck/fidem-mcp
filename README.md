@@ -8,7 +8,7 @@ A free, remote MCP server that tells an AI agent **who is behind an online shop*
 https://fidemcheck.com/mcp
 ```
 
-One tool, `consultar_tienda(dominio)`, takes a shop domain and returns facts, each with its source and date:
+Two tools with the same data: `check_shop(domain)`, with English field names, and the original `consultar_tienda(dominio)`, with Spanish field names. Each takes a shop domain and returns facts, each with its source and date:
 
 | Fact | Source |
 |---|---|
@@ -54,7 +54,7 @@ claude mcp add --transport http fidem https://fidemcheck.com/mcp
 **No MCP? Call the API.** Same answer as JSON, described in [OpenAPI 3.1](https://fidemcheck.com/openapi.json):
 
 ```
-curl "https://fidemcheck.com/api/v1/tienda?dominio=shop.example"
+curl "https://fidemcheck.com/api/v1/shop?domain=shop.example"
 ```
 
 A minimal Python agent tool is in [examples/check_shop.py](examples/check_shop.py).
@@ -67,7 +67,7 @@ A minimal Python agent tool is in [examples/check_shop.py](examples/check_shop.p
 
 ## Limits, measured
 
-Every month we run 50 large shops through the same check and publish the results, including what fails: [what an AI agent can know about an online shop](https://fidemcheck.com/what-ai-agents-can-know-about-a-shop.html). Limit: 300 lookups per hour per IP.
+On 24 November 2026 we ran 1,000 shops from 14 countries through the same check and published the results, including what fails: [what an AI agent can know about an online shop](https://fidemcheck.com/what-ai-agents-can-know-about-a-shop.html). Limit: 300 lookups per hour per IP.
 
 ## For shops
 
