@@ -57,13 +57,29 @@ claude mcp add --transport http fidem https://fidemcheck.com/mcp
 curl "https://fidemcheck.com/api/v1/shop?domain=shop.example"
 ```
 
-A minimal Python agent tool is in [examples/check_shop.py](examples/check_shop.py).
+## Examples and framework guides
+
+- [examples/check_shop.py](examples/check_shop.py): a minimal Python agent tool.
+- [examples/browser_use_checkout_guard.py](examples/browser_use_checkout_guard.py): Browser Use 1.0. Checks the shop before the agent starts and only lets it pay on its own when the identity is verified.
+- Guides with tested code: [LangChain](https://fidemcheck.com/langchain-check-online-shop.html), [OpenAI Agents SDK](https://fidemcheck.com/openai-agents-sdk-check-online-shop.html), [Vercel AI SDK](https://fidemcheck.com/vercel-ai-sdk-check-online-shop.html).
 
 ## What to tell the user
 
-- `nivel: verificada_por_la_tienda`: the shop proved to Fidem that it controls the domain and its company matches the register. `tipo_titular` says whether it is a company or a sole trader.
-- `nivel: consulta_publica`: only public data. Say that the shop has not proved who runs it. That is not a sign of fraud.
-- `listas_webs_peligrosas.codigo: en_lista`: the domain is on a phishing list. Do not pay.
+Branch on `decision`. It is the same in the MCP tool, the REST API and the [reference checker](https://github.com/fidemcheck/mvf-spec).
+
+| `decision` | What it means | What the agent should do |
+|---|---|---|
+| `verified` | The company proved control of the domain and was checked against the official register. The only value where `identity_verified` is `true` | Pay without asking, if your policy allows it |
+| `domain_proven` | The shop proved the domain on the free plan, without a signed file | Show the user the facts and ask |
+| `in_review` | The shop proved the domain and its company is being checked | Show the facts and ask |
+| `not_verified` | No verification. Most shops have none yet, so this is not a sign of fraud | Show the facts and ask |
+| `revoked`, `expired`, `invalid_file` | A verification existed and no longer holds | Ask, and say why |
+| `fictitious_demo` | Fidem's own example shop | Never pay |
+| `no_data` | The check could not finish | Ask |
+
+If `phishing_lists.code` is `listed`, the domain is on an open list of active phishing sites. Do not pay.
+
+The first lookup of a domain Fidem has never seen answers within about 7 seconds. If the full check is still running you get `lookup_status: "in_progress"` and `retry_after_seconds: 15`, and the next call returns the full answer from cache.
 
 ## Limits, measured
 
