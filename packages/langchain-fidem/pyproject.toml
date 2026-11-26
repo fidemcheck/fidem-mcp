@@ -1,0 +1,29 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "langchain-fidem"
+version = "0.1.0"
+description = "Check which company operates an online shop before an AI agent pays. Fidem shop check as a LangChain tool. Free, no API key."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.9"
+authors = [{ name = "Fidem", email = "hola@fidemcheck.com" }]
+keywords = ["langchain", "ai-agents", "agentic-commerce", "merchant-verification", "mcp", "fidem", "tool"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Operating System :: OS Independent",
+  "Intended Audience :: Developers",
+  "Topic :: Software Development :: Libraries",
+]
+dependencies = ["langchain-core>=0.3", "pydantic>=2"]
+
+[project.urls]
+Homepage = "https://fidemcheck.com/langchain-check-online-shop.html"
+Documentation = "https://fidemcheck.com/for-agents.html"
+Source = "https://github.com/fidemcheck/fidem-mcp"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/langchain_fidem"]

@@ -1,0 +1,34 @@
+{
+  "name": "@fidemcheck/ai-sdk",
+  "version": "0.1.0",
+  "description": "Check which company operates an online shop before an AI agent pays. Fidem shop check as a Vercel AI SDK tool. Free, no API key.",
+  "type": "module",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js"
+    }
+  },
+  "files": ["index.js", "index.d.ts", "README.md", "LICENSE"],
+  "sideEffects": false,
+  "engines": { "node": ">=18" },
+  "peerDependencies": {
+    "ai": ">=5",
+    "zod": ">=3.23"
+  },
+  "devDependencies": {
+    "ai": "7.0.183",
+    "zod": "4.6.7"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "keywords": ["ai-sdk", "vercel-ai-sdk", "ai-agents", "agentic-commerce", "merchant-verification", "mcp", "fidem", "tool"],
+  "homepage": "https://fidemcheck.com/vercel-ai-sdk-check-online-shop.html",
+  "repository": { "type": "git", "url": "git+https://github.com/fidemcheck/fidem-mcp.git", "directory": "packages/ai-sdk" },
+  "bugs": { "email": "hola@fidemcheck.com" },
+  "author": "Fidem <hola@fidemcheck.com> (https://fidemcheck.com)",
+  "license": "MIT"
+}

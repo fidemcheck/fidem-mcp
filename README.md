@@ -57,6 +57,15 @@ claude mcp add --transport http fidem https://fidemcheck.com/mcp
 curl "https://fidemcheck.com/api/v1/shop?domain=shop.example"
 ```
 
+## Packages
+
+If you would rather call it as a tool than connect the MCP server, the same check comes as a package. Both wait on their own while the first lookup of a new domain is still running, so the agent never acts on a partial answer.
+
+- **Vercel AI SDK:** [`@fidemcheck/ai-sdk`](packages/ai-sdk), with `checkShop()`, `fidemCheck()` and `isVerified()`.
+- **LangChain:** [`langchain-fidem`](packages/langchain-fidem), with `FidemCheckShop`, `fidem_check()` and `is_verified()`.
+
+They are not on npm and PyPI yet. Until they are, install them from this repository.
+
 ## Examples and framework guides
 
 - [examples/check_shop.py](examples/check_shop.py): a minimal Python agent tool.
