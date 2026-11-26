@@ -64,7 +64,7 @@ If you would rather call it as a tool than connect the MCP server, the same chec
 - **Vercel AI SDK:** [`@fidemcheck/ai-sdk`](packages/ai-sdk), with `checkShop()`, `fidemCheck()` and `isVerified()`.
 - **LangChain:** [`langchain-fidem`](packages/langchain-fidem), with `FidemCheckShop`, `fidem_check()` and `is_verified()`.
 
-They are not on npm and PyPI yet. Until they are, install them from this repository.
+They are not on npm and PyPI yet. Until they are, install the LangChain one from this repository with `pip install "git+https://github.com/fidemcheck/fidem-mcp#subdirectory=packages/langchain-fidem"`. For the AI SDK, copy [`packages/ai-sdk/index.js`](packages/ai-sdk/index.js) into your project: it only needs `ai` and `zod`.
 
 ## Examples and framework guides
 
