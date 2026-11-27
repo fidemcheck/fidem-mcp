@@ -61,10 +61,10 @@ curl "https://fidemcheck.com/api/v1/shop?domain=shop.example"
 
 If you would rather call it as a tool than connect the MCP server, the same check comes as a package. Both wait on their own while the first lookup of a new domain is still running, so the agent never acts on a partial answer.
 
-- **Vercel AI SDK:** [`@fidemcheck/ai-sdk`](packages/ai-sdk), with `checkShop()`, `fidemCheck()` and `isVerified()`.
-- **LangChain:** [`langchain-fidem`](packages/langchain-fidem), with `FidemCheckShop`, `fidem_check()` and `is_verified()`.
+- **Vercel AI SDK:** [`@fidemcheck/ai-sdk`](https://www.npmjs.com/package/@fidemcheck/ai-sdk) ([source](packages/ai-sdk)), with `checkShop()`, `fidemCheck()` and `isVerified()`.
+- **LangChain:** [`langchain-fidem`](https://pypi.org/project/langchain-fidem/) ([source](packages/langchain-fidem)), with `FidemCheckShop`, `fidem_check()` and `is_verified()`.
 
-They are not on npm and PyPI yet. Until they are, install the LangChain one from this repository with `pip install "git+https://github.com/fidemcheck/fidem-mcp#subdirectory=packages/langchain-fidem"`. For the AI SDK, copy [`packages/ai-sdk/index.js`](packages/ai-sdk/index.js) into your project: it only needs `ai` and `zod`.
+Install them with `npm install @fidemcheck/ai-sdk ai zod` or `pip install langchain-fidem`.
 
 ## Examples and framework guides
 
